@@ -14,7 +14,9 @@ public sealed class Player
 
     public Position Position { get; }
 
-    public Player(SpanishId idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position)
+    public Guid TeamId { get; }
+
+    public Player(SpanishId idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position, Guid teamId)
     {
         IdNumber = idNumber;
         Name = name;
@@ -22,6 +24,7 @@ public sealed class Player
         HeightCentimeters = heightCentimeters;
         WeightKilograms = weightKilograms;
         Position = position;
+        TeamId = teamId;
     }
 
     public void SetHeight(int heightInCentimeters)
