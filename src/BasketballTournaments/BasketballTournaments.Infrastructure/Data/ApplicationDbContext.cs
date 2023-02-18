@@ -1,5 +1,6 @@
 ﻿using BasketballTournaments.Domain.Players;
 using BasketballTournaments.Domain.Teams;
+using BasketballTournaments.Infrastructure.Players.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasketballTournaments.Infrastructure.Data;
@@ -20,6 +21,7 @@ public class ApplicationDbContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         // Apply configurations here
+        modelBuilder.ApplyConfiguration(new PlayerEntityConfiguration());
     }
 
 }
