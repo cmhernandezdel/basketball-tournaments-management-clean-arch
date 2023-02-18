@@ -4,7 +4,7 @@ using BaskteballTournaments.SeedWork;
 
 namespace BasketballTournaments.Domain.Teams;
 
-public sealed class Team : Entity()
+public sealed class Team : Entity
 {
     public string Name { get; }
 
