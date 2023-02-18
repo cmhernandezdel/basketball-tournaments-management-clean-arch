@@ -1,6 +1,8 @@
-﻿namespace BasketballTournaments.Domain.Players;
+﻿using BaskteballTournaments.SeedWork;
 
-public sealed class Player
+namespace BasketballTournaments.Domain.Players;
+
+public sealed class Player: Entity
 {
     public SpanishId IdNumber { get; }
 
@@ -16,7 +18,7 @@ public sealed class Player
 
     public Guid TeamId { get; }
 
-    public Player(SpanishId idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position, Guid teamId)
+    public Player(SpanishId idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position, Guid teamId) : base()
     {
         IdNumber = idNumber;
         Name = name;

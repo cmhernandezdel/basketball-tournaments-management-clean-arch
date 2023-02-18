@@ -1,12 +1,11 @@
 ﻿using BasketballTournaments.Domain.Players;
 using BasketballTournaments.Domain.Shared;
+using BaskteballTournaments.SeedWork;
 
 namespace BasketballTournaments.Domain.Teams;
 
-public sealed class Team
+public sealed class Team : Entity()
 {
-    public Guid Id { get; }
-
     public string Name { get; }
 
     public string City { get; }
@@ -15,9 +14,8 @@ public sealed class Team
 
     public SpanishId CaptainId { get; private set; }
 
-    public Team(string name, string city, ContactInfo contactInfo, SpanishId captainId)
+    public Team(string name, string city, ContactInfo contactInfo, SpanishId captainId) : base()
     {
-        Id = Guid.NewGuid();
         Name = name;
         City = city;
         ContactInfo = contactInfo;

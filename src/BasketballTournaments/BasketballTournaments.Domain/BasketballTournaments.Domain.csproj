@@ -10,4 +10,8 @@
     <PackageReference Include="LanguageExt.Core" Version="4.2.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BaskteballTournaments.SeedWork\BaskteballTournaments.SeedWork.csproj" />
+  </ItemGroup>
+
 </Project>
