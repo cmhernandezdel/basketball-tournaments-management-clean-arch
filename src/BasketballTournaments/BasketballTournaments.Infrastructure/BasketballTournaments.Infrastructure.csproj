@@ -7,11 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentResults" Version="3.15.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.14" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BasketballTournaments.Domain\BasketballTournaments.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Shared\Errors\" />
   </ItemGroup>
 
 </Project>
