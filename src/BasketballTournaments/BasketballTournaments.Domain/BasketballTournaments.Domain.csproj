@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaskteballTournaments.SeedWork\BaskteballTournaments.SeedWork.csproj" />
+    <ProjectReference Include="..\BaskteballTournaments.SeedWork\BasketballTournaments.SeedWork.csproj" />
   </ItemGroup>
 
 </Project>

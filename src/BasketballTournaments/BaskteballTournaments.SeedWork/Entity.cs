@@ -1,4 +1,4 @@
-﻿namespace BaskteballTournaments.SeedWork;
+﻿namespace BasketballTournaments.SeedWork;
 
 public abstract class Entity
 {

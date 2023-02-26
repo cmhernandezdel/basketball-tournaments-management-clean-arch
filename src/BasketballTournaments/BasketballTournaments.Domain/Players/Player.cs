@@ -1,4 +1,4 @@
-﻿using BaskteballTournaments.SeedWork;
+﻿using BasketballTournaments.SeedWork;
 
 namespace BasketballTournaments.Domain.Players;
 
