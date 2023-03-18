@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using BasketballTournaments.SeedWork;
+﻿using BasketballTournaments.SeedWork;
 using FluentResults;
 
 namespace BasketballTournaments.Domain.Players;
