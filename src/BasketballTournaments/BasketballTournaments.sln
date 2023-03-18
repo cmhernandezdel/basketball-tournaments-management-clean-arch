@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketballTournaments.SeedW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketballTournaments.Infrastructure", "BasketballTournaments.Infrastructure\BasketballTournaments.Infrastructure.csproj", "{A3B899C6-E35A-4EC7-A557-BF2B8899B15C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketballTournaments.Application", "BasketballTournaments.Application\BasketballTournaments.Application.csproj", "{7630D3E2-4520-4E29-B3B3-9C9A8B03E718}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A3B899C6-E35A-4EC7-A557-BF2B8899B15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3B899C6-E35A-4EC7-A557-BF2B8899B15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3B899C6-E35A-4EC7-A557-BF2B8899B15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7630D3E2-4520-4E29-B3B3-9C9A8B03E718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7630D3E2-4520-4E29-B3B3-9C9A8B03E718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7630D3E2-4520-4E29-B3B3-9C9A8B03E718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7630D3E2-4520-4E29-B3B3-9C9A8B03E718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
