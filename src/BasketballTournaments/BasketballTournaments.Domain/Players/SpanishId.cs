@@ -1,4 +1,4 @@
-﻿using LanguageExt;
+﻿using FluentResults;
 using System.Text.RegularExpressions;
 
 namespace BasketballTournaments.Domain.Players;
@@ -12,11 +12,11 @@ public sealed class SpanishId
         Number = number;
     }
 
-    public static Option<SpanishId> FromString(string number)
+    public static Result<SpanishId> FromString(string number)
     {
         string pattern = @"[0-9]{8}[a-zA-Z]";
         bool isValid = Regex.IsMatch(number, pattern);
-        if (!isValid) return Option<SpanishId>.None;
-        return new SpanishId(number);
+        if (!isValid) return Result.Fail("Validation failed.");
+        return Result.Ok(new SpanishId(number));
     }
 }

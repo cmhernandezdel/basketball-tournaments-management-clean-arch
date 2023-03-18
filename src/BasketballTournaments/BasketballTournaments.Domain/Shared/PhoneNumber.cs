@@ -1,4 +1,4 @@
-﻿using LanguageExt;
+﻿using FluentResults;
 using System.Text.RegularExpressions;
 
 namespace BasketballTournaments.Domain.Shared;
@@ -15,15 +15,15 @@ public sealed class PhoneNumber
         Number = number;
     }
 
-    public static Option<PhoneNumber> FromString(string number)
+    public static Result<PhoneNumber> FromString(string number)
     {
         bool isValid = Regex.IsMatch(number, ValidationRegex);
-        if (!isValid) 
+        if (!isValid)
         {
-            return Option<PhoneNumber>.None;
+            return Result.Fail("Validation failed.");
         }
 
-        return new PhoneNumber(number);
+        return Result.Ok(new PhoneNumber(number));
     }
 
     public static implicit operator string(PhoneNumber number) => number.Number;

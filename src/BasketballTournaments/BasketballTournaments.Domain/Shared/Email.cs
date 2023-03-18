@@ -1,4 +1,4 @@
-﻿using LanguageExt;
+﻿using FluentResults;
 using System.Text.RegularExpressions;
 
 namespace BasketballTournaments.Domain.Shared;
@@ -15,15 +15,15 @@ public sealed class Email
         Address = address;
     }
 
-    public static Option<Email> FromString(string address)
+    public static Result<Email> FromString(string address)
     {
         bool isValid = Regex.IsMatch(address, ValidationRegex);
         if (!isValid)
         {
-            return Option<Email>.None;
+            return Result.Fail("Validation failed.");
         }
 
-        return new Email(address);
+        return Result.Ok(new Email(address));
     }
 
     public static implicit operator string(Email email) => email.Address;

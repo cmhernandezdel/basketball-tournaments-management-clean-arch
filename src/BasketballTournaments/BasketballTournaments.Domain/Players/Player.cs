@@ -1,8 +1,10 @@
-﻿using BasketballTournaments.SeedWork;
+﻿using System.Globalization;
+using BasketballTournaments.SeedWork;
+using FluentResults;
 
 namespace BasketballTournaments.Domain.Players;
 
-public sealed class Player: Entity
+public sealed partial class Player : Entity
 {
     public SpanishId IdNumber { get; }
 
@@ -18,7 +20,27 @@ public sealed class Player: Entity
 
     public Guid TeamId { get; }
 
-    public Player(SpanishId idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position, Guid teamId) : base()
+    public static Result<Player> Create(SpanishId idNumber, string name, string surname, int heightInCentimeters, double weightInKilograms, Position position, Guid teamId)
+    {
+        string trimmedName = name.Trim();
+        string trimmedSurname = surname.Trim();
+
+        Result validationResult = Result.Merge(
+            Result.FailIf(string.IsNullOrEmpty(trimmedName), "Name cannot be empty."),
+            Result.FailIf(trimmedName.Length > MaxLengthName, $"Name cannot exceed {MaxLengthName} characters."),
+            Result.FailIf(string.IsNullOrEmpty(trimmedSurname), "Surname cannot be empty."),
+            Result.FailIf(trimmedSurname.Length > MaxLengthSurname, $"Name cannot exceed {MaxLengthSurname} characters.")
+        );
+
+        if (validationResult.IsFailed)
+        {
+            return validationResult;
+        }
+
+        return Result.Ok(new Player(idNumber, name, surname, heightInCentimeters, weightInKilograms, position, teamId));
+    }
+
+    private Player(SpanishId idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position, Guid teamId) : base()
     {
         IdNumber = idNumber;
         Name = name;
