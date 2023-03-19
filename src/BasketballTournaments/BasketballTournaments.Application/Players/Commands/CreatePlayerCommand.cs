@@ -13,21 +13,21 @@ public sealed class CreatePlayerCommand : IRequest<Result<PlayerDto>>
 
     public string Surname { get; }
 
-    public int HeightCentimeters { get; }
+    public int HeightInCentimeters { get; }
 
-    public double WeightKilograms { get; }
+    public double WeightInKilograms { get; }
 
     public Position Position { get; }
 
     public Guid TeamId { get; }
 
-    public CreatePlayerCommand(string idNumber, string name, string surname, int heightCentimeters, double weightKilograms, Position position, Guid teamId)
+    public CreatePlayerCommand(string idNumber, string name, string surname, int heightInCentimeters, double weightInKilograms, Position position, Guid teamId)
     {
         IdNumber = idNumber;
         Name = name;
         Surname = surname;
-        HeightCentimeters = heightCentimeters;
-        WeightKilograms = weightKilograms;
+        HeightInCentimeters = heightInCentimeters;
+        WeightInKilograms = weightInKilograms;
         Position = position;
         TeamId = teamId;
     }
