@@ -1,5 +1,6 @@
 ﻿using BasketballTournaments.Infrastructure.Data;
 using BasketballTournaments.Infrastructure.Shared.Errors;
+using BasketballTournaments.SeedWork;
 using FluentResults;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,5 +29,10 @@ public class GenericReadRepository<T> : IGenericReadRepository<T> where T : clas
         }
 
         return Result.Ok(result);
+    }
+
+    public async virtual Task<IEnumerable<T>> Get(Specification<T> specification, CancellationToken cancellationToken)
+    {
+        return await _dbSet.AsNoTracking().Where(specification.ToExpression()).ToListAsync(cancellationToken: cancellationToken);
     }
 }
