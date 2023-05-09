@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketballTournaments.Appli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketballTournaments.SeedWork", "BasketballTournaments.SeedWork\BasketballTournaments.SeedWork.csproj", "{92D9192B-2243-4E7E-9574-DDA683320464}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketballTournaments.Api", "BasketballTournaments.Api\BasketballTournaments.Api.csproj", "{F49E7CB0-5490-4378-99BA-97FB3A30B46A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{92D9192B-2243-4E7E-9574-DDA683320464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92D9192B-2243-4E7E-9574-DDA683320464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92D9192B-2243-4E7E-9574-DDA683320464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49E7CB0-5490-4378-99BA-97FB3A30B46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49E7CB0-5490-4378-99BA-97FB3A30B46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49E7CB0-5490-4378-99BA-97FB3A30B46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49E7CB0-5490-4378-99BA-97FB3A30B46A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
