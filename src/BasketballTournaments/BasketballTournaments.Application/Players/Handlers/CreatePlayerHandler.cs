@@ -41,6 +41,5 @@ public sealed class CreatePlayerHandler : IRequestHandler<CreatePlayerCommand, R
         await _repository.Insert(itemToInsert, cancellationToken);
         PlayerDto dto = _mapper.Map<PlayerDto>(itemToInsert);
         return Result.Ok(dto);
-
     }
 }
