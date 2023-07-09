@@ -1,7 +1,7 @@
 ﻿using FluentResults;
 using System.Text.RegularExpressions;
 
-namespace BasketballTournaments.Domain.Players;
+namespace BasketballTournaments.Domain.Shared.ValueObjects;
 
 public sealed class SpanishId
 {

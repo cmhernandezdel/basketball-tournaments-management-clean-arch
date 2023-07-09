@@ -1,4 +1,4 @@
-﻿namespace BasketballTournaments.Domain.Shared;
+﻿namespace BasketballTournaments.Domain.Shared.ValueObjects;
 
 public sealed class ContactInfo : ValueObject
 {

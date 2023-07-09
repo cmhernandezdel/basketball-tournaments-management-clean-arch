@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using FluentResults;
 
-namespace BasketballTournaments.Domain.Shared;
+namespace BasketballTournaments.Domain.Shared.ValueObjects;
 
 public sealed class PhoneNumber : ValueObject
 {
