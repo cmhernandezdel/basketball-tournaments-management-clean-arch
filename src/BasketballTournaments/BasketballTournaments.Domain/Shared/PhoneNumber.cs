@@ -1,9 +1,9 @@
-﻿using FluentResults;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using FluentResults;
 
 namespace BasketballTournaments.Domain.Shared;
 
-public sealed class PhoneNumber
+public sealed class PhoneNumber : ValueObject
 {
     // See: https://uibakery.io/regex-library/phone-number-csharp
     private const string ValidationRegex = "^\\+?[1-9][0-9]{7,14}$";
@@ -26,5 +26,12 @@ public sealed class PhoneNumber
         return Result.Ok(new PhoneNumber(number));
     }
 
+    public override IEnumerable<object?> GetAtomicValues()
+    {
+        yield return Number;
+    }
+
     public static implicit operator string(PhoneNumber number) => number.Number;
+
+
 }
