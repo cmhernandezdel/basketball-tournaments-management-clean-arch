@@ -1,5 +1,5 @@
 ﻿using BasketballTournaments.Domain.Players;
-using BasketballTournaments.Domain.Shared;
+using BasketballTournaments.Domain.Shared.ValueObjects;
 using BasketballTournaments.SeedWork;
 
 namespace BasketballTournaments.Domain.Teams;

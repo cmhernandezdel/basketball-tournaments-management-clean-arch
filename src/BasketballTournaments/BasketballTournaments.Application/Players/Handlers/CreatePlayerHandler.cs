@@ -3,6 +3,7 @@ using BasketballTournaments.Application.Players.Commands;
 using BasketballTournaments.Application.Players.DTO;
 using BasketballTournaments.Application.Shared.Errors;
 using BasketballTournaments.Domain.Players;
+using BasketballTournaments.Domain.Shared.ValueObjects;
 using BasketballTournaments.Infrastructure.Players.Repositories;
 using FluentResults;
 using MediatR;

@@ -1,5 +1,5 @@
 using BasketballTournaments.Application.Shared.Queries;
-using BasketballTournaments.Domain.Players;
+using BasketballTournaments.Domain.Shared.ValueObjects;
 using FluentResults;
 
 namespace BasketballTournaments.Application.Shared.Converters;
