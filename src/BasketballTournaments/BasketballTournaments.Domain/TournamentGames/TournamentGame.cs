@@ -20,7 +20,7 @@ public sealed class TournamentGame : Entity
 
     public Guid MostValuablePlayerId { get; }
 
-    public Guid TournamentId { get; }
+    public Guid? TournamentId { get; private set; }
 
     public DateTime TimestampUtc { get; }
 
@@ -31,14 +31,12 @@ public sealed class TournamentGame : Entity
         uint awayTeamPoints,
         Stage stage,
         Player mostValuablePlayer,
-        Tournament tournament,
         DateTime timestampUtc)
     {
         Result validationResult = Result.Merge(
             Result.FailIf(homeTeam == awayTeam, "Home team cannot be the same as away team."),
             Result.FailIf(homeTeamPoints == awayTeamPoints, "A basketball game cannot end in a tie."),
-            Result.FailIf(mostValuablePlayer.TeamId != homeTeam.Id && mostValuablePlayer.TeamId != awayTeam.Id, "The MVP is not on any of the two teams."),
-            Result.FailIf(timestampUtc > tournament.EndTimestampUtc || timestampUtc < tournament.StartTimestampUtc, "Game is outside tournament dates.")
+            Result.FailIf(mostValuablePlayer.TeamId != homeTeam.Id && mostValuablePlayer.TeamId != awayTeam.Id, "The MVP is not on any of the two teams.")
         );
 
         if (validationResult.IsFailed)
@@ -46,10 +44,15 @@ public sealed class TournamentGame : Entity
             return validationResult;
         }
 
-        return Result.Ok(new TournamentGame(homeTeam.Id, awayTeam.Id, homeTeamPoints, awayTeamPoints, stage, mostValuablePlayer.Id, tournament.Id, timestampUtc));
+        return Result.Ok(new TournamentGame(homeTeam.Id, awayTeam.Id, homeTeamPoints, awayTeamPoints, stage, mostValuablePlayer.Id, timestampUtc));
     }
 
-    private TournamentGame(Guid homeTeamId, Guid awayTeamId, uint homeTeamPoints, uint awayTeamPoints, Stage stage, Guid mostValuablePlayerId, Guid tournamentId, DateTime timestampUtc) : base()
+    internal void SetTournament(Tournament? tournament)
+    {
+        TournamentId = tournament?.Id;
+    }
+
+    private TournamentGame(Guid homeTeamId, Guid awayTeamId, uint homeTeamPoints, uint awayTeamPoints, Stage stage, Guid mostValuablePlayerId, DateTime timestampUtc) : base()
     {
         HomeTeamId = homeTeamId;
         AwayTeamId = awayTeamId;
@@ -57,7 +60,7 @@ public sealed class TournamentGame : Entity
         AwayTeamPoints = awayTeamPoints;
         Stage = stage;
         MostValuablePlayerId = mostValuablePlayerId;
-        TournamentId = tournamentId;
+        TournamentId = null;
         TimestampUtc = timestampUtc;
     }
 }
