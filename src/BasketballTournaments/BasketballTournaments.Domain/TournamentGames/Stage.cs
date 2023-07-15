@@ -1,4 +1,4 @@
-namespace BasketballTournaments.Domain.TournamentMatches;
+namespace BasketballTournaments.Domain.TournamentGames;
 
 public enum Stage
 {
