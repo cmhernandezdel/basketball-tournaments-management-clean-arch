@@ -19,7 +19,7 @@ public sealed partial class Player : Entity
 
     public Position Position { get; }
 
-    public Guid TeamId { get; }
+    public Guid? TeamId { get; private set; }
 
     public static Result<Player> Create(
         SpanishId idNumber,
@@ -28,7 +28,7 @@ public sealed partial class Player : Entity
         uint heightInCentimeters,
         double weightInKilograms,
         Position position,
-        Team team)
+        Team? team = null)
     {
         string trimmedName = name.Trim();
         string trimmedSurname = surname.Trim();
@@ -46,10 +46,10 @@ public sealed partial class Player : Entity
             return validationResult;
         }
 
-        return Result.Ok(new Player(idNumber, name, surname, heightInCentimeters, weightInKilograms, position, team.Id));
+        return Result.Ok(new Player(idNumber, name, surname, heightInCentimeters, weightInKilograms, position, team?.Id));
     }
 
-    private Player(SpanishId idNumber, string name, string surname, uint heightCentimeters, double weightKilograms, Position position, Guid teamId) : base()
+    private Player(SpanishId idNumber, string name, string surname, uint heightCentimeters, double weightKilograms, Position position, Guid? teamId) : base()
     {
         IdNumber = idNumber;
         Name = name;
@@ -75,5 +75,10 @@ public sealed partial class Player : Entity
 
         WeightInKilograms = weightInKilograms;
         return Result.Ok();
+    }
+
+    internal void SetTeam(Team? team)
+    {
+        TeamId = team?.Id;
     }
 }

@@ -17,9 +17,9 @@ public sealed class PlayerEntityConfiguration : IEntityTypeConfiguration<Player>
             .IsRequired();
         builder.Property(entity => entity.Position)
             .IsRequired();
-        builder.Property(entity => entity.HeightCentimeters)
+        builder.Property(entity => entity.HeightInCentimeters)
             .IsRequired();
-        builder.Property(entity => entity.WeightKilograms)
+        builder.Property(entity => entity.WeightInKilograms)
             .IsRequired();
         builder.Property(entity => entity.TeamId)
             .IsRequired();

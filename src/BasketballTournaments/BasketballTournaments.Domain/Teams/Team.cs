@@ -1,4 +1,5 @@
-﻿using BasketballTournaments.Domain.Players;
+﻿using System.ComponentModel.DataAnnotations;
+using BasketballTournaments.Domain.Players;
 using BasketballTournaments.Domain.Shared.ValueObjects;
 using BasketballTournaments.SeedWork;
 using FluentResults;
@@ -56,16 +57,43 @@ public sealed partial class Team : Entity
 
     public Result AddPlayer(Player player)
     {
-        
+        Result validationResult = Result.FailIf(player.TeamId is not null, "Player is already assigned to another team.");
+        if (validationResult.IsFailed)
+        {
+            return validationResult;
+        }
+
+        _players.Add(player);
+        player.SetTeam(this);
+        return Result.Ok();
     }
 
-    public void SetCaptain(Player captain)
+    public Result RemovePlayer(Player player)
     {
-        if (captain.TeamId != Id)
+        Result validationResult = Result.Merge(
+            Result.FailIf(!_players.Contains(player), "Player is not assigned to this team."),
+            Result.FailIf(CaptainId == player.Id, "Cannot remove captain from team until another captain is set.")
+        );
+
+        if (validationResult.IsFailed)
         {
-            throw new ArgumentException("Player must be assigned to this team to be its captain!");
+            return validationResult;
+        }
+
+        _players.Remove(player);
+        player.SetTeam(null);
+        return Result.Ok();
+    }
+
+    public Result SetCaptain(Player captain)
+    {
+        Result validationResult = Result.FailIf(!_players.Contains(captain), "Player is not assigned to this team.");
+        if (validationResult.IsFailed)
+        {
+            return validationResult;
         }
 
         CaptainId = captain.Id;
+        return Result.Ok();
     }
 }
