@@ -12,16 +12,16 @@ public sealed class PlayerEntityConfiguration : IEntityTypeConfiguration<Player>
         builder.HasKey(entity => entity.Id);
         builder.HasAlternateKey(entity => entity.IdNumber);
         builder.Property(entity => entity.Name)
-            .IsRequired();
+            .IsRequired()
+            .HasMaxLength(Player.MaxLengthName);
         builder.Property(entity => entity.Surname)
-            .IsRequired();
+            .IsRequired()
+            .HasMaxLength(Player.MaxLengthSurname);
         builder.Property(entity => entity.Position)
             .IsRequired();
         builder.Property(entity => entity.HeightInCentimeters)
             .IsRequired();
         builder.Property(entity => entity.WeightInKilograms)
-            .IsRequired();
-        builder.Property(entity => entity.TeamId)
             .IsRequired();
 
         builder.HasOne<Team>()
